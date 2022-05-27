@@ -2,7 +2,7 @@ import 'bootswatch/dist/minty/bootstrap.css';
 import {Col, Container, Row} from "react-bootstrap";
 import Header from "./components/Header/Header";
 import Filter from "./components/Filter";
-import Books from "./components/Books";
+import Books from "./components/Books/Books";
 import Cart from "./components/Cart";
 import Balance from "./components/Header/Balance";
 

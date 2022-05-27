@@ -4,6 +4,10 @@ __Технологии__
 - ReactJS
 - MobX
 
-__Библиотека стилей__
+__Библиотека стилей__ - [Bootswatch Minty](https://bootswatch.com/minty/) 
 
-[Bootswatch Minty](https://bootswatch.com/minty/) 
+---
+__Инструкция по локальному запуску__
+
+Откройте консоль в папке проекта и введите команду `npm start`, после чего страница проекта откроется в окне браузера 
+по адресу [http://localhost:3000](http://localhost:3000).
