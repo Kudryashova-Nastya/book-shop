@@ -5,7 +5,7 @@ import {Button, Card} from "react-bootstrap";
 import './style.css';
 
 
-const Item = ({id, name, authorName, price, coverUrl}) => {
+const Item = ({name, authorName, price, coverUrl}) => {
     return (
         <Card >
             <div style={{flex: 1}}>
@@ -15,9 +15,7 @@ const Item = ({id, name, authorName, price, coverUrl}) => {
                 <Card.Title>{price} р</Card.Title>
                 <h6>{name}</h6>
                 <Card.Text>
-
                     {authorName}
-
                 </Card.Text>
                 <Button variant="outline-primary">В корзину</Button>
             </Card.Body>
@@ -33,8 +31,8 @@ const Books = observer(() => {
     return (
         <div style={{overflowY: 'scroll', height: '85vh'}}>
             <div className='band'>
-                {Store.booksInfo !== null ? Store.booksInfo.map((item, id) => (
-                    <Item key={id} id={id} name={item.name} authorName={item.authorName} price={item.price}
+                {Store.booksInfo !== null ? Store.booksInfo.map(item => (
+                    <Item key={item.name} name={item.name} authorName={item.authorName} price={item.price}
                                  coverUrl={item.coverUrl} />
                 )) : <p>книг нет</p>}
             </div>

@@ -1,5 +1,5 @@
 import {makeAutoObservable, runInAction} from "mobx";
-import {getHostInformation, POSTCORS} from "./helper/getHostInformation";
+import {getHostInformation, POSTCORS} from "./helper";
 
 const host = getHostInformation();
 
@@ -9,6 +9,7 @@ class Store {
     }
 
     booksInfo = null;
+    cart = []
 
     fetchBooksInfo = async (filters) => {
         const data = {
