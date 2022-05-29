@@ -3,6 +3,7 @@ import Store from "../../store/Store";
 import {Button, Card, Stack} from "react-bootstrap";
 import {observer} from "mobx-react";
 import './style.css';
+import BuyButton from "./BuyButton";
 
 const Item = observer(({name, price, count}) => {
     return (
@@ -46,17 +47,25 @@ const Item = observer(({name, price, count}) => {
     )
 })
 
+const CartList = observer(() => {
+    return (
+        <>
+            <div className='cart__list'>
+                {Store.cart.map(item => (
+                    <Item key={item.name} name={item.name} price={item.price} count={item.count}/>
+                ))}
+            </div>
+            <BuyButton/>
+        </>
+    )
+})
+
 const Cart = observer(() => {
     return (
         <>
             <h3>Корзина</h3>
-            <div className='cart'>
-                {Store.cart.length !== 0 ?
-                    Store.cart.map(item => (
-                        <Item key={item.name} name={item.name} price={item.price} count={item.count}/>
-                    ))
-                    : <p>нет добавленных книг</p>}
-            </div>
+            {Store.cart.length !== 0 ? <CartList/>
+                : <div className='cart__empty'><p>нет добавленных книг</p></div>}
         </>
     )
 })

@@ -8,6 +8,14 @@ class Store {
         makeAutoObservable(this)
     }
 
+    balance = 10200
+    totalPriceCart = 0
+
+    buyBooks = () => {
+        this.balance = this.balance - this.totalPriceCart
+        this.totalPriceCart = 0
+    }
+
     booksInfo = null
 
     fetchBooksInfo = async (filters) => {
@@ -50,7 +58,7 @@ class Store {
                     count: 1
                 })
             }
-            console.log(JSON.stringify(this.cart))
+            // console.log(JSON.stringify(this.cart))
         })
     }
 

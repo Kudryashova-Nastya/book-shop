@@ -1,12 +1,13 @@
 import React from 'react';
 import {Container, Navbar} from "react-bootstrap";
 import LOGO from './Icon.svg'
+import Balance from "./Balance";
 
 const Header = () => {
     return (
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand href="#home" style={{fontSize: '1.5em'}}>
+                <Navbar.Brand href="https://github.com/Kudryashova-Nastya/book-shop" style={{fontSize: '1.5em'}}>
                     <img
                         alt=""
                         src={LOGO}
@@ -16,6 +17,7 @@ const Header = () => {
                     />{' '}
                     Магазин книг
                 </Navbar.Brand>
+                <Balance/>
             </Container>
         </Navbar>
     );

@@ -1,7 +1,15 @@
 @media only screen and (min-width: 576px) {
-    .cart {
+    .cart__list {
         overflow-y: scroll;
-        height: 85vh
+        height: 75vh
+    }
+
+    .cart__empty {
+        position: absolute;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
     }
 }
 
@@ -24,4 +32,34 @@
 
 .cart__input span {
     cursor: pointer;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart__empty {
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.buy {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.buy__text {
+    font-size: 1.2rem;
+}
+
+.buy__text span {
+    font-size: 1.3rem;
+    font-weight: 500;
 }

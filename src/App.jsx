@@ -4,7 +4,6 @@ import Header from "./components/Header/Header";
 import Filter from "./components/Filter";
 import Books from "./components/Books/Books";
 import Cart from "./components/Cart/Cart";
-import Balance from "./components/Header/Balance";
 
 function App() {
     return (
@@ -16,8 +15,7 @@ function App() {
                         <Filter/>
                         <Books/>
                     </Col>
-                    <Col sm={4} className="order-1 order-sm-2">
-                        <Balance/>
+                    <Col sm={4} className="order-1 order-sm-2 cart">
                         <Cart/>
                     </Col>
                 </Row>

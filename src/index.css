@@ -2,6 +2,14 @@ body {
     margin: 0;
 }
 
+body * {
+    color: rgb(136, 136, 136)
+}
+
+nav * {
+    color: white;
+}
+
 h6 {
     line-height: 130%;
 }
