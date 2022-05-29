@@ -19,3 +19,12 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+
+
+@media only screen and (min-width: 576px) {
+    .books {
+        overflow-y: scroll;
+        height: 85vh
+    }
+}

@@ -1,0 +1,6 @@
+@media only screen and (min-width: 576px) {
+    .cart {
+        overflow-y: scroll;
+        height: 85vh
+    }
+}

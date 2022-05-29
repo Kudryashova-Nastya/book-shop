@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import Header from "./components/Header/Header";
 import Filter from "./components/Filter";
 import Books from "./components/Books/Books";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import Balance from "./components/Header/Balance";
 
 function App() {

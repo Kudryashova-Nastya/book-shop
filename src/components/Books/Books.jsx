@@ -17,7 +17,7 @@ const Item = ({name, authorName, price, coverUrl}) => {
                 <Card.Text>
                     {authorName}
                 </Card.Text>
-                <Button variant="outline-primary">В корзину</Button>
+                <Button variant="outline-primary" onClick={() => {Store.addBookToCart(name, price)}}>В корзину</Button>
             </Card.Body>
         </Card>
     )
@@ -29,7 +29,7 @@ const Books = observer(() => {
     }, [])
 
     return (
-        <div style={{overflowY: 'scroll', height: '85vh'}}>
+        <div className="books">
             <div className='band'>
                 {Store.booksInfo !== null ? Store.booksInfo.map(item => (
                     <Item key={item.name} name={item.name} authorName={item.authorName} price={item.price}
