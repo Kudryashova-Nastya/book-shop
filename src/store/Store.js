@@ -12,6 +12,8 @@ class Store {
         })
     }
 
+    // Баланс и Итого
+
     balance = 10200
     totalPriceCart = 0
 
@@ -36,6 +38,7 @@ class Store {
 
     }
 
+    // Книги
 
     booksInfo = null
 
@@ -52,6 +55,8 @@ class Store {
             })
         }
     }
+
+    // Корзина
 
     cart = []
 
@@ -138,6 +143,8 @@ class Store {
         this.closeModal()
     }
 
+    // Модальные окна
+
     modalBuyVisible = false
     setBuyVisible = () => {
         runInAction(() => {
@@ -170,6 +177,23 @@ class Store {
             this.bookDelete = ''
         })
     }
+
+    // Фильтры
+
+    filters = null
+    categories = []
+
+    fetchCategories = async () => {
+        const petReq = await fetch(`${host}/bookstore-api/books/categories`);
+        const petRes = await petReq.json();
+        console.log(petRes);
+        if (petReq.ok) {
+            runInAction(() => {
+                this.categories = petRes
+            })
+        }
+    }
+
 }
 
 export default new Store()
