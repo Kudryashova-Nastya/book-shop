@@ -7,7 +7,7 @@ const BuyButton = observer(() => {
     return (
         <div className='buy'>
             <span className='buy__text'>Итого: <span>{Store.totalPriceCart}</span> р</span>
-            <Button variant="outline-secondary" size="lg" onClick={Store.buyBooks}>
+            <Button variant="primary" size="lg" onClick={Store.setBuyVisible}>
                 Купить
             </Button>
         </div>

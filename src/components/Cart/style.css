@@ -1,7 +1,7 @@
 @media only screen and (min-width: 576px) {
     .cart__list {
         overflow-y: scroll;
-        height: 75vh
+        height: 70vh
     }
 
     .cart__empty {
@@ -10,6 +10,24 @@
         right:0;
         top:0;
         bottom:0;
+    }
+}
+
+@media only screen and (max-height: 675px) and (min-width: 576px) {
+    .cart__list {
+        height: 60vh
+    }
+}
+
+@media only screen and (max-height: 505px) and (min-width: 576px) {
+    .cart__list {
+        height: 50vh
+    }
+}
+
+@media only screen and (max-height: 405px) and (min-width: 576px) {
+    .cart__list {
+        height: 40vh
     }
 }
 

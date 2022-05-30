@@ -1,4 +1,4 @@
-import {makeAutoObservable, runInAction} from "mobx";
+import {makeAutoObservable, runInAction, autorun } from "mobx";
 import {getHostInformation, POSTCORS} from "./helper";
 
 const host = getHostInformation()
@@ -6,15 +6,37 @@ const host = getHostInformation()
 class Store {
     constructor() {
         makeAutoObservable(this)
+
+        autorun(() => {
+            this.setTotalPrice(this.cart.reduce((prev, item) => prev + item.totalPrice, 0))
+        })
     }
 
     balance = 10200
     totalPriceCart = 0
 
-    buyBooks = () => {
-        this.balance = this.balance - this.totalPriceCart
-        this.totalPriceCart = 0
+    setTotalPrice = (newPrice) => {
+        runInAction(() => {
+            this.totalPriceCart = newPrice
+        })
     }
+
+    buyBooks = () => {
+        const currentBalance = this.balance - this.totalPriceCart
+        if (currentBalance > 0) {
+            runInAction(() => {
+                this.balance = currentBalance
+                this.cart = []
+            })
+            this.closeModal()
+        } else {
+            this.closeModal()
+            this.setNoBalanceVisible()
+        }
+
+    }
+
+
 
     booksInfo = null
 
@@ -112,6 +134,27 @@ class Store {
                     return position
                 }
             )
+        })
+    }
+
+    modalBuyVisible = false
+    setBuyVisible = () => {
+        runInAction(() => {
+            this.modalBuyVisible = true
+        })
+    }
+
+    modalNoBalanceVisible = false
+    setNoBalanceVisible = () => {
+        runInAction(() => {
+            this.modalNoBalanceVisible = true
+        })
+    }
+
+    closeModal = () => {
+        runInAction(() => {
+            this.modalBuyVisible = false
+            this.modalNoBalanceVisible = false
         })
     }
 }

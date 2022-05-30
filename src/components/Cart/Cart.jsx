@@ -4,6 +4,8 @@ import {Button, Card, Stack} from "react-bootstrap";
 import {observer} from "mobx-react";
 import './style.css';
 import BuyButton from "./BuyButton";
+import BuyBooksModal from "../Modal/BuyBooksModal";
+import NoBalanceModal from "../Modal/NoBalanceModal";
 
 const Item = observer(({name, price, count}) => {
     return (
@@ -66,6 +68,9 @@ const Cart = observer(() => {
             <h3>Корзина</h3>
             {Store.cart.length !== 0 ? <CartList/>
                 : <div className='cart__empty'><p>нет добавленных книг</p></div>}
+
+            {Store.modalBuyVisible ? <BuyBooksModal/> : null}
+            {Store.modalNoBalanceVisible ? <NoBalanceModal/> : null}
         </>
     )
 })

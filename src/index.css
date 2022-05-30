@@ -3,7 +3,8 @@ body {
 }
 
 body * {
-    color: rgb(136, 136, 136)
+    color: rgb(136, 136, 136);
+    box-sizing: border-box;
 }
 
 nav * {
