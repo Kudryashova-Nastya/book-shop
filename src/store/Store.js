@@ -1,4 +1,4 @@
-import {makeAutoObservable, runInAction, autorun } from "mobx";
+import {makeAutoObservable, runInAction, autorun} from "mobx";
 import {getHostInformation, POSTCORS} from "./helper";
 
 const host = getHostInformation()
@@ -35,7 +35,6 @@ class Store {
         }
 
     }
-
 
 
     booksInfo = null
@@ -84,9 +83,6 @@ class Store {
         })
     }
 
-    deleteBookFromCart = (name) => {
-        this.cart = this.cart.filter((position) => position.name !== name)
-    }
 
     plus = (name) => {
         runInAction(() => {
@@ -137,6 +133,11 @@ class Store {
         })
     }
 
+    deleteBookFromCart = () => {
+        this.cart = this.cart.filter((position) => position.name !== this.bookDelete)
+        this.closeModal()
+    }
+
     modalBuyVisible = false
     setBuyVisible = () => {
         runInAction(() => {
@@ -151,10 +152,22 @@ class Store {
         })
     }
 
+    bookDelete = ''
+
+    modalDeletePositionVisible = false
+    setDeletePositionVisible = (name) => {
+        runInAction(() => {
+            this.bookDelete = name
+            this.modalDeletePositionVisible = true
+        })
+    }
+
     closeModal = () => {
         runInAction(() => {
             this.modalBuyVisible = false
             this.modalNoBalanceVisible = false
+            this.modalDeletePositionVisible = false
+            this.bookDelete = ''
         })
     }
 }

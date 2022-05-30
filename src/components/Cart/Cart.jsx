@@ -6,6 +6,7 @@ import './style.css';
 import BuyButton from "./BuyButton";
 import BuyBooksModal from "../Modal/BuyBooksModal";
 import NoBalanceModal from "../Modal/NoBalanceModal";
+import DeletePositionModal from "../Modal/DeletePositionModal";
 
 const Item = observer(({name, price, count}) => {
     return (
@@ -41,7 +42,7 @@ const Item = observer(({name, price, count}) => {
                 </div>
                 <div>
                     <Button variant="secondary" size="sm" onClick={() => {
-                        Store.deleteBookFromCart(name)
+                        Store.setDeletePositionVisible(name)
                     }}>x</Button>
                 </div>
             </Stack>
@@ -71,6 +72,7 @@ const Cart = observer(() => {
 
             {Store.modalBuyVisible ? <BuyBooksModal/> : null}
             {Store.modalNoBalanceVisible ? <NoBalanceModal/> : null}
+            {Store.modalDeletePositionVisible ? <DeletePositionModal/> : null}
         </>
     )
 })
