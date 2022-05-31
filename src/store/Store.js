@@ -70,7 +70,7 @@ class Store {
                                 ...position,
                                 price: price,
                                 count: ++position.count,
-                                totalPrice: ++position.count * price
+                                totalPrice: position.count * price
                             }
                         }
                         return position
@@ -96,7 +96,7 @@ class Store {
                         return {
                             ...position,
                             count: ++position.count,
-                            totalPrice: ++position.count * position.price
+                            totalPrice: position.count * position.price
                         }
                     }
                     return position
@@ -126,10 +126,11 @@ class Store {
         runInAction(() => {
             this.cart = this.cart.map((position) => {
                     if (position.name === name) {
+                        const currentCount = count < 1 ? 1 : count
                         return {
                             ...position,
-                            count: count,
-                            totalPrice: count * position.price
+                            count: currentCount,
+                            totalPrice: currentCount * position.price
                         }
                     }
                     return position
