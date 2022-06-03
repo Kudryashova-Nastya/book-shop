@@ -4,12 +4,14 @@ __Технологии__
 - ReactJS
 - MobX
 
-__Библиотека стилей__ - [Bootswatch Minty](https://bootswatch.com/minty/) 
+__Библиотека стилей__ - [Bootswatch Minty](https://bootswatch.com/minty/)
+
+__Лоадер__ - [React Spinners](https://www.npmjs.com/package/react-spinners)
 
 ---
 __Инструкция по локальному запуску__
 
-Откройте консоль в папке проекта и введите команду `npm start`, после чего страница проекта откроется в окне браузера 
+Откройте консоль в папке проекта и поочерёдно введите команды `npm install` и `npm start`, после чего страница проекта откроется в окне браузера 
 по адресу [http://localhost:3000](http://localhost:3000).
 
 ---

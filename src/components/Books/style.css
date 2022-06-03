@@ -20,11 +20,26 @@
     }
 }
 
-
+.books {
+    height: 200%;
+}
 
 @media only screen and (min-width: 576px) {
     .books {
         overflow-y: scroll;
-        height: 85vh
+        height: 75vh
     }
+}
+
+.band-empty {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.band-empty p {
+    font-size: 1.3rem;
 }

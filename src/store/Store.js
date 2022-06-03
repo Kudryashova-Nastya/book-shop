@@ -43,6 +43,7 @@ class Store {
     booksInfo = null
 
     fetchBooksInfo = async (filters) => {
+        this.setLoading(true)
         const data = {
             "filters": filters
         }
@@ -54,6 +55,7 @@ class Store {
                 this.booksInfo = petRes
             })
         }
+        this.setLoading(false)
     }
 
     // Корзина
@@ -176,6 +178,15 @@ class Store {
             this.modalNoBalanceVisible = false
             this.modalDeletePositionVisible = false
             this.bookDelete = ''
+        })
+    }
+
+    // Лоадер
+
+    isLoading = true
+    setLoading = (bool) => {
+        runInAction(() => {
+            this.isLoading = bool
         })
     }
 
