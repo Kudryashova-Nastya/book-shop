@@ -217,6 +217,13 @@ class Store {
         this.fetchBooksInfo()
     }
 
+    setSearchReq = (req) => {
+        runInAction(() => {
+            this.filters.search = req
+        })
+        this.fetchBooksInfo()
+    }
+
 }
 
 export default new Store()

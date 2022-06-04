@@ -38,8 +38,8 @@ const Filter = observer(() => {
                     </DropdownButton>
                 </li>
                 <li className="nav-item search">
-                    <input className="form-control me-sm-2" type="text" placeholder="Поиск"/>
-                        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">S</button>
+                    <input className="form-control me-sm-2" onChange={(e) => { Store.setSearchReq(e.target.value)}} type="text" placeholder="Поиск"/>
+                    <button className="btn btn-outline-primary my-2 my-sm-0">S</button>
                 </li>
             </ul>
 
