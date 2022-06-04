@@ -1,0 +1,50 @@
+.category * {
+    text-decoration: none;
+}
+
+.category a:hover {
+    background-color: lightgray;
+}
+
+.category:hover button {
+    text-decoration: none;
+    color: #609b8a;;
+}
+
+.category button:focus {
+    box-shadow: none;
+}
+
+.dropdown-item {
+    color: rgb(136, 136, 136)
+}
+
+.nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 0;
+    margin-bottom: 5px;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px) {
+    .nav {
+        flex-direction: row;
+    }
+}
+
+.arrows {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.arrows span {
+    height: 15px;
+}
+
+.search {
+    display: flex;
+
+}

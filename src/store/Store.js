@@ -42,7 +42,7 @@ class Store {
 
     booksInfo = null
 
-    fetchBooksInfo = async (filters) => {
+    fetchBooksInfo = async (filters = {}) => {
         this.setLoading(true)
         const data = {
             "filters": filters

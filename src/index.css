@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    /*font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
+    /*font-size: 0.8rem;*/
 }
 
 body * {
@@ -18,8 +20,8 @@ h6 {
 @media only screen and (min-width: 576px) {
     body {
         margin: 0;
-        overflow-y:hidden;
-        overflow-x:hidden;
+        overflow-y: hidden;
+        overflow-x: hidden;
     }
 }
 
