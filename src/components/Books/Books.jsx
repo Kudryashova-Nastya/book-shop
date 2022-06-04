@@ -28,7 +28,7 @@ const Item = ({name, authorName, price, coverUrl}) => {
 
 const Books = observer(() => {
     useEffect(() => {
-        Store.fetchBooksInfo({})
+        Store.fetchBooksInfo()
     }, [])
 
     return (

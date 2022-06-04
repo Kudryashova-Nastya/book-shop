@@ -42,10 +42,10 @@ class Store {
 
     booksInfo = null
 
-    fetchBooksInfo = async (filters = {}) => {
+    fetchBooksInfo = async () => {
         this.setLoading(true)
         const data = {
-            "filters": filters
+            "filters": this.filters
         }
         const petReq = await fetch(`${host}/bookstore-api/books`, POSTCORS(data));
         const petRes = await petReq.json();
@@ -192,7 +192,7 @@ class Store {
 
     // Фильтры
 
-    filters = null
+    filters = {sortPrice: "DESC"}
     categories = []
 
     fetchCategories = async () => {
@@ -204,6 +204,17 @@ class Store {
                 this.categories = petRes
             })
         }
+    }
+
+    toggleSort = () => {
+        runInAction(() => {
+            if (this.filters.sortPrice === "DESC") {
+                this.filters.sortPrice = "ASC"
+            } else {
+                this.filters.sortPrice = "DESC"
+            }
+        })
+        this.fetchBooksInfo()
     }
 
 }
