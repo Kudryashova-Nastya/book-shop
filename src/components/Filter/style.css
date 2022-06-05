@@ -1,5 +1,7 @@
 .category * {
     text-decoration: none;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .category a:hover {
@@ -33,6 +35,10 @@
     grid-gap: 5px;
 }
 
+/*.nav * {*/
+/*    font-size: 1.2rem;*/
+/*}*/
+
 @media only screen and (min-width: 768px) {
     .nav {
         display: inline-grid;
@@ -46,10 +52,15 @@
 .sort {
     cursor: pointer;
     grid-area: sort;
+    font-size: 1.1rem;
 }
 
 .categories {
     grid-area: categories;
+}
+
+.category button {
+    font-size: 1.1rem;
 }
 
 .arrows {

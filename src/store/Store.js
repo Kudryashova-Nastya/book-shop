@@ -1,5 +1,6 @@
 import {makeAutoObservable, runInAction, autorun} from "mobx";
 import {getHostInformation, POSTCORS} from "./helper";
+import Cookie from 'mobx-cookie'
 
 const host = getHostInformation()
 
@@ -10,7 +11,12 @@ class Store {
         autorun(() => {
             this.setTotalPrice(this.cart.reduce((prev, item) => prev + item.totalPrice, 0))
         })
+        console.log(this.cookieBalance)
     }
+
+    // Куки
+
+    cookieBalance = new Cookie('balance')
 
     // Баланс и Итого
 
