@@ -8,15 +8,36 @@ class Store {
     constructor() {
         makeAutoObservable(this)
 
+        // if (!this.cookieBalance.value) {
+        //     this.cookieBalance.set('10200', { expires: 2 })
+        // } else {
+        //     this.balance = +this.cookieBalance.value
+        // }
+
+        if (this.cookieBalance.value) {
+            this.balance = +this.cookieBalance.value
+        }
+
+        autorun(() => {
+            this.updateBalanceCookie(this.balance)
+        })
+
         autorun(() => {
             this.setTotalPrice(this.cart.reduce((prev, item) => prev + item.totalPrice, 0))
         })
-        console.log(this.cookieBalance)
+
     }
 
     // Куки
 
     cookieBalance = new Cookie('balance')
+
+    updateBalanceCookie = (value) => {
+        runInAction(() => {
+            this.cookieBalance.set(value.toString(), { expires: 2 })
+            console.log(this.cookieBalance.value)
+        })
+    }
 
     // Баланс и Итого
 
