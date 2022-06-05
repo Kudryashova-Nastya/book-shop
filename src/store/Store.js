@@ -8,12 +8,6 @@ class Store {
     constructor() {
         makeAutoObservable(this)
 
-        // if (!this.cookieBalance.value) {
-        //     this.cookieBalance.set('10200', { expires: 2 })
-        // } else {
-        //     this.balance = +this.cookieBalance.value
-        // }
-
         if (this.cookieBalance.value) {
             this.balance = +this.cookieBalance.value
         }
@@ -21,6 +15,16 @@ class Store {
         autorun(() => {
             this.updateBalanceCookie(this.balance)
         })
+
+
+        if (this.cookieCart.value) {
+            this.cart = JSON.parse(this.cookieCart.value)
+        }
+
+        autorun(() => {
+            this.updateCartCookie(this.cart)
+        })
+
 
         autorun(() => {
             this.setTotalPrice(this.cart.reduce((prev, item) => prev + item.totalPrice, 0))
@@ -34,8 +38,15 @@ class Store {
 
     updateBalanceCookie = (value) => {
         runInAction(() => {
-            this.cookieBalance.set(value.toString(), { expires: 2 })
-            console.log(this.cookieBalance.value)
+            this.cookieBalance.set(value, { expires: 2 })
+        })
+    }
+
+    cookieCart = new Cookie('cart')
+
+    updateCartCookie = (value) => {
+        runInAction(() => {
+            this.cookieCart.set(JSON.stringify(value), { expires: 2 })
         })
     }
 
@@ -112,6 +123,8 @@ class Store {
                     totalPrice: price,
                     count: 1
                 })
+                // autorun не реагирует на push, поэтому добавляем изменения в куки вручную
+                this.updateCartCookie(this.cart)
             }
             // console.log(JSON.stringify(this.cart))
         })

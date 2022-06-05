@@ -54,7 +54,7 @@ const CartList = observer(() => {
     return (
         <>
             <div className='cart__list'>
-                {Store.cart.map(item => (
+                {Store.cart?.map(item => (
                     <Item key={item.name} name={item.name} price={item.price} count={item.count}/>
                 ))}
             </div>
