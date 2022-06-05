@@ -21,13 +21,20 @@
 }
 
 .books {
-    height: 200%;
+    padding-bottom: 7px;
 }
 
 @media only screen and (min-width: 576px) {
     .books {
         overflow-y: scroll;
-        height: 75vh
+        height: 71vh
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .books {
+        overflow-y: scroll;
+        height: 79vh
     }
 }
 

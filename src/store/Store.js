@@ -40,7 +40,7 @@ class Store {
 
     // Книги
 
-    booksInfo = null
+    booksInfo = []
 
     fetchBooksInfo = async () => {
         this.setLoading(true)
@@ -49,7 +49,7 @@ class Store {
         }
         const petReq = await fetch(`${host}/bookstore-api/books`, POSTCORS(data));
         const petRes = await petReq.json();
-        console.log(petRes);
+        // console.log(petRes);
         if (petReq.ok) {
             runInAction(() => {
                 this.booksInfo = petRes
@@ -192,13 +192,13 @@ class Store {
 
     // Фильтры
 
-    filters = {sortPrice: "DESC"}
+    filters = {sortPrice: "ASC"}
     categories = []
 
     fetchCategories = async () => {
         const petReq = await fetch(`${host}/bookstore-api/books/categories`);
         const petRes = await petReq.json();
-        console.log(petRes);
+        // console.log(petRes);
         if (petReq.ok) {
             runInAction(() => {
                 this.categories = petRes
@@ -208,10 +208,10 @@ class Store {
 
     toggleSort = () => {
         runInAction(() => {
-            if (this.filters.sortPrice === "DESC") {
-                this.filters.sortPrice = "ASC"
-            } else {
+            if (this.filters.sortPrice === "ASC") {
                 this.filters.sortPrice = "DESC"
+            } else {
+                this.filters.sortPrice = "ASC"
             }
         })
         this.fetchBooksInfo()
@@ -222,6 +222,21 @@ class Store {
             this.filters.search = req
         })
         this.fetchBooksInfo()
+    }
+
+    categoryName = null
+
+    setCategory = (id) => {
+        runInAction(() => {
+            this.filters.categoryId = id
+            this.categoryName = this.findCategoryName(id)
+        })
+        this.fetchBooksInfo()
+    }
+
+    findCategoryName = (id) => {
+        const categoryItem = this.categories.find(item => item.id === id);
+        return (categoryItem?.name)
     }
 
 }

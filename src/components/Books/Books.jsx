@@ -33,12 +33,12 @@ const Books = observer(() => {
 
     return (
         <div className="books">
-            <div className={(Store.isLoading || Store.booksInfo == null) ? 'band-empty' : 'band'} >
+            <div className={(Store.isLoading || Store.booksInfo.length === 0) ? 'band-empty' : 'band'} >
 
                 {Store.isLoading ?
                     <DotLoader color={'rgb(120, 194, 173)'} size={70}/> :
 
-                    Store.booksInfo !== null ? Store.booksInfo.map(item => (
+                    (Store.booksInfo.length > 0) ? Store.booksInfo.map(item => (
                         <Item key={item.name} name={item.name} authorName={item.authorName} price={item.price}
                               coverUrl={item.coverUrl}/>
                     )) : <p>книг нет</p>
