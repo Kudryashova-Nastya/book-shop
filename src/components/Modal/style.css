@@ -47,5 +47,8 @@
 
 .bold {
     font-weight: 500;
+}
 
+.modal-header {
+    gap: 10px;
 }

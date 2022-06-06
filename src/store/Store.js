@@ -61,21 +61,6 @@ class Store {
         })
     }
 
-    buyBooks = () => {
-        const currentBalance = this.balance - this.totalPriceCart
-        if (currentBalance > 0) {
-            runInAction(() => {
-                this.balance = currentBalance
-                this.cart = []
-            })
-            this.closeModal()
-        } else {
-            this.closeModal()
-            this.setNoBalanceVisible()
-        }
-
-    }
-
     // Книги
 
     booksInfo = []
@@ -186,6 +171,27 @@ class Store {
         this.closeModal()
     }
 
+    buyBooks = () => {
+        const currentBalance = this.balance - this.totalPriceCart
+        if (currentBalance > 0) {
+            runInAction(() => {
+                this.balance = currentBalance
+                this.cart = []
+            })
+            this.closeModal()
+        } else {
+            this.closeModal()
+            this.setNoBalanceVisible()
+        }
+    }
+
+    clearCart = () => {
+        runInAction(() => {
+            this.cart = []
+        })
+        this.closeModal()
+    }
+
     // Модальные окна
 
     modalBuyVisible = false
@@ -212,11 +218,19 @@ class Store {
         })
     }
 
+    modalClearCartVisible = false
+    setClearCartVisible = () => {
+        runInAction(() => {
+            this.modalClearCartVisible = true
+        })
+    }
+
     closeModal = () => {
         runInAction(() => {
             this.modalBuyVisible = false
             this.modalNoBalanceVisible = false
             this.modalDeletePositionVisible = false
+            this.modalClearCartVisible = false
             this.bookDelete = ''
         })
     }
@@ -254,14 +268,14 @@ class Store {
                 this.filters.sortPrice = "ASC"
             }
         })
-        this.fetchBooksInfo()
+        void this.fetchBooksInfo()
     }
 
     setSearchReq = (req) => {
         runInAction(() => {
             this.filters.search = req
         })
-        this.fetchBooksInfo()
+        void this.fetchBooksInfo()
     }
 
     categoryName = null
@@ -271,7 +285,7 @@ class Store {
             this.filters.categoryId = id
             this.categoryName = this.findCategoryName(id)
         })
-        this.fetchBooksInfo()
+        void this.fetchBooksInfo()
     }
 
     findCategoryName = (id) => {

@@ -80,3 +80,19 @@
     font-size: 1.3rem;
     font-weight: 500;
 }
+
+.cart__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+}
+
+.cart__head button:hover path {
+    fill: white;
+    transition: 0.15s;
+}
+
+.cart__head button path {
+    transition: 0.15s;
+}

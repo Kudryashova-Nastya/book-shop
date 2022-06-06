@@ -6,7 +6,7 @@ import {DropdownButton, Dropdown} from "react-bootstrap";
 
 const Filter = observer(() => {
     useEffect(() => {
-        Store.fetchCategories()
+        void Store.fetchCategories()
     }, [])
 
     return (
@@ -14,7 +14,7 @@ const Filter = observer(() => {
 
             <ul className="nav nav-pills">
                 <li className="nav-item sort" onClick={Store.toggleSort}>
-                    По цене
+                    <span>По цене</span>
                     <div className='arrows'>
                         <button className='btn'>
                             <svg className={Store.filters.sortPrice === "DESC" ? 'down' : 'up'} width="19" height="11"
