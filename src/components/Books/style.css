@@ -73,6 +73,18 @@
     gap:0.5rem;
 }
 
+.card__category {
+    margin-bottom: 6px;
+    color: #78c2ad;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.badge.bg-light {
+    color: #78c2ad;
+    cursor: pointer;
+}
+
 .card__footer {
     display: flex;
     justify-content: flex-start;
