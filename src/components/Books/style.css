@@ -56,3 +56,29 @@
 .band-empty p {
     font-size: 1.3rem;
 }
+
+.card__img {
+    height: 260px;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 5px 5px 0;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:0.5rem;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media only screen and (max-width: 400px) {
+    .card__img {
+        height: 245px;
+    }
+}

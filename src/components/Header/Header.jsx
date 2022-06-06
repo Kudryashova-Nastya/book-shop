@@ -2,12 +2,13 @@ import React from 'react';
 import {Container, Navbar} from "react-bootstrap";
 import LOGO from './Icon.svg'
 import Balance from "./Balance";
+import './style.css';
 
 const Header = () => {
     return (
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand href="https://github.com/Kudryashova-Nastya/book-shop" style={{fontSize: '1.5em'}}>
+                <Navbar.Brand href="https://github.com/Kudryashova-Nastya/book-shop" className='logo'>
                     <img
                         alt=""
                         src={LOGO}

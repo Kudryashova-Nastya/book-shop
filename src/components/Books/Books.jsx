@@ -9,19 +9,27 @@ import './style.css';
 const Item = ({name, authorName, price, coverUrl}) => {
     return (
         <Card>
-            <div style={{flex: 1}}>
-                <Card.Img variant="top" src={coverUrl}/>
+            <div className='card__img' style={{backgroundImage: `url(${coverUrl})`}}>
+                {/*<Card.Img variant="top" src={coverUrl}/>*/}
             </div>
-            <Card.Body style={{flex: 'none'}}>
+            <Card.Body className='card__body'>
+                <div>
                 <Card.Title>{price} р</Card.Title>
                 <h6>{name}</h6>
                 <Card.Text>
                     {authorName}
                 </Card.Text>
-                <Button variant="outline-primary" onClick={() => {
-                    Store.addBookToCart(name, price)
-                }}>В корзину</Button>
+                </div>
+                <div className='card__footer'>
+                    <Button variant="outline-primary" onClick={() => {
+                        Store.addBookToCart(name, price)
+                    }}>
+                        В корзину
+                    </Button>
+                </div>
+
             </Card.Body>
+
         </Card>
     )
 }
@@ -33,7 +41,7 @@ const Books = observer(() => {
 
     return (
         <div className="books">
-            <div className={(Store.isLoading || Store.booksInfo.length === 0) ? 'band-empty' : 'band'} >
+            <div className={(Store.isLoading || Store.booksInfo.length === 0) ? 'band-empty' : 'band'}>
 
                 {Store.isLoading ?
                     <DotLoader color={'rgb(120, 194, 173)'} size={70}/> :

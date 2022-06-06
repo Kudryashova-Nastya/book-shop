@@ -11,7 +11,6 @@ const Filter = observer(() => {
 
     return (
         <>
-
             <ul className="nav nav-pills">
                 <li className="nav-item sort" onClick={Store.toggleSort}>
                     <span>По цене</span>

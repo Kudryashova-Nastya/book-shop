@@ -1,11 +1,12 @@
 import React from 'react';
 import Store from "../../store/Store";
 import {observer} from "mobx-react";
+import './style.css';
 
 const Balance = observer(() => {
     return (
-        <span style={{fontSize: '1.2rem'}}>
-            Баланс: <span style={{fontWeight: 500, fontSize: '1.3rem'}}>{Store.balance}</span> р
+        <span className='balance'>
+            Баланс: <span>{Store.balance}</span> р
         </span>
     );
 });
