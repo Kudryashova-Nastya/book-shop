@@ -52,6 +52,10 @@
     cursor: pointer;
 }
 
+.cart__input span:hover path {
+fill: #78c2ad
+}
+
 .cart {
     position: relative;
 }

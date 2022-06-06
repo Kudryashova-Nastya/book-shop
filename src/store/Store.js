@@ -200,6 +200,7 @@ class Store {
     setBuyVisible = () => {
         runInAction(() => {
             this.modalBuyVisible = true
+            document.body.style.overflow = 'hidden';
         })
     }
 
@@ -207,6 +208,7 @@ class Store {
     setNoBalanceVisible = () => {
         runInAction(() => {
             this.modalNoBalanceVisible = true
+            document.body.style.overflow = 'hidden';
         })
     }
 
@@ -217,6 +219,7 @@ class Store {
         runInAction(() => {
             this.bookDelete = name
             this.modalDeletePositionVisible = true
+            document.body.style.overflow = 'hidden';
         })
     }
 
@@ -224,6 +227,7 @@ class Store {
     setClearCartVisible = () => {
         runInAction(() => {
             this.modalClearCartVisible = true
+            document.body.style.overflow = 'hidden';
         })
     }
 
@@ -234,6 +238,7 @@ class Store {
             this.modalDeletePositionVisible = false
             this.modalClearCartVisible = false
             this.bookDelete = ''
+            document.body.style.overflow = 'unset';
         })
     }
 

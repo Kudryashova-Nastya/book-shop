@@ -12,7 +12,6 @@ const Item = ({name, authorName, price, coverUrl, categoryId}) => {
     return (
         <Card>
             <div className='card__img' style={{backgroundImage: `url(${coverUrl})`}}>
-                {/*<Card.Img variant="top" src={coverUrl}/>*/}
             </div>
             <Card.Body className='card__body'>
                 <div>
