@@ -102,5 +102,15 @@
     align-items: center;
     grid-area: search;
     width: 100%;
+    gap: 5px;
+}
+
+.clear-filter {
+    color:#f3969a;
+    cursor: pointer;
+}
+
+.clear-filter:hover {
+    text-decoration: underline;
 }
 

@@ -292,6 +292,7 @@ class Store {
     setSearchReq = (req) => {
         runInAction(() => {
             this.filters.search = req
+            this.searchValue = req
         })
         void this.fetchBooksInfo()
     }
@@ -309,6 +310,17 @@ class Store {
     findCategoryName = (id) => {
         const categoryItem = this.categories.find(item => item.id === id);
         return (categoryItem?.name)
+    }
+
+    searchValue = ''
+
+    clearFilters = () => {
+        runInAction(() => {
+            this.filters = {sortPrice: "ASC"}
+            this.categoryName = null
+            this.searchValue = ''
+        })
+        void this.fetchBooksInfo()
     }
 
 }

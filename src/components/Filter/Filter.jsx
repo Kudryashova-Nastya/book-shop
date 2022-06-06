@@ -41,7 +41,8 @@ const Filter = observer(() => {
                 <li className="nav-item search">
                     <input className="form-control me-sm-2" onChange={(e) => {
                         Store.setSearchReq(e.target.value)
-                    }} type="text" placeholder="Поиск"/>
+                    }} type="text" placeholder="Поиск" value={Store.searchValue}/>
+                    <span className='clear-filter' onClick={Store.clearFilters} title="Сбросить фильтры">Сбросить</span>
                 </li>
             </ul>
 
