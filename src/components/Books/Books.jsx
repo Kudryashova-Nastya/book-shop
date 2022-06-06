@@ -4,6 +4,8 @@ import Store from "../../store/Store";
 import {Button, Card} from "react-bootstrap";
 import DotLoader from "react-spinners/DotLoader";
 import './style.css';
+import ToastCookie from "../Toast/ToastCookie";
+import ToastOk from "../Toast/ToastOk";
 
 
 const Item = ({name, authorName, price, coverUrl}) => {
@@ -53,6 +55,8 @@ const Books = observer(() => {
                 }
 
             </div>
+            <ToastCookie/>
+            <ToastOk/>
         </div>
     );
 });

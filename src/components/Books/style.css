@@ -40,7 +40,8 @@
 @media only screen and (min-width: 768px) {
     .books {
         overflow-y: scroll;
-        height: 79vh
+        height: 79vh;
+        padding-right: 5px;
     }
 }
 

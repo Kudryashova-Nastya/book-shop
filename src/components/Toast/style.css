@@ -1,0 +1,31 @@
+.toast__block {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    z-index: 55;
+    background-color: rgba(255, 255, 255, 0.97);
+    transition: 0.8s;
+}
+
+@media only screen and (min-width: 768px) {
+    .toast__block {
+        width: 70vw;
+    }
+}
+
+.toast__block * {
+    color: #f3969a;
+}
+
+.toast__block--primary * {
+    color: #78c2ad;
+}
+
+.hidden {
+    transition: 0.8s;
+    transform: translateY(400px);
+    visibility: hidden;
+}

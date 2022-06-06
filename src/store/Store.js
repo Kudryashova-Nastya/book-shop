@@ -19,6 +19,7 @@ class Store {
 
         if (this.cookieCart.value) {
             this.cart = JSON.parse(this.cookieCart.value)
+            this.setToastCookieVisible(false)
         }
 
         autorun(() => {
@@ -177,6 +178,7 @@ class Store {
             runInAction(() => {
                 this.balance = currentBalance
                 this.cart = []
+                this.setToastOkVisible(true)
             })
             this.closeModal()
         } else {
@@ -232,6 +234,22 @@ class Store {
             this.modalDeletePositionVisible = false
             this.modalClearCartVisible = false
             this.bookDelete = ''
+        })
+    }
+
+    // Тосты
+
+    ToastCookieVisible = true
+    setToastCookieVisible = (bool) => {
+        runInAction(() => {
+            this.ToastCookieVisible = bool
+        })
+    }
+
+    ToastOkVisible = false
+    setToastOkVisible = (bool) => {
+        runInAction(() => {
+            this.ToastOkVisible = bool
         })
     }
 
