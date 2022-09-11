@@ -47,6 +47,13 @@ __Лоадер__ - [React Spinners](https://www.npmjs.com/package/react-spinners
 ---
 __Инструкция по локальному запуску__
 
-Откройте консоль в папке проекта и поочерёдно введите команды `npm install` и `npm start`, после чего страница проекта откроется в окне браузера 
-по адресу [http://localhost:3000](http://localhost:3000).
+Для запуска на ПК должны быть установлены: Node.js и Git;
+
+Склонируйте репозиторий
+$ git clone https://github.com/Kudryashova-Nastya/book-shop.git
+
+Откройте консоль в папке проекта и поочерёдно введите команды 
+$ npm install 
+$ npm start
+После чего страница проекта откроется в окне браузера по адресу [http://localhost:3000](http://localhost:3000).
 
